@@ -22,15 +22,23 @@ public class TopTrumpsController {
     @Autowired
     TopTrumpsService topTrumpsService;
 
+
+
+    @PostMapping(value = "/create")
+    public ResponseEntity<Reply> startNewGame(){
+        Reply reply = topTrumpsService.startNewGame();
+        return new ResponseEntity<>(reply, HttpStatus.CREATED);
+    }
+
     @PostMapping
-    public ResponseEntity<Reply> Winner(@RequestBody ArrayList<Card> cards){
+    public ResponseEntity<Reply> winner(@RequestBody ArrayList<Card> cards){
 
         ArrayList<Card> listOfCards = new ArrayList<>();
         listOfCards = cards;
         Card card1 = listOfCards.get(0);
         Card card2 = listOfCards.get(1);
 
-        Reply reply = TopTrumpsService.checkWinner(card1, card2);
+        Reply reply = topTrumpsService.checkWinner(card1, card2);
         return new ResponseEntity<>(reply, HttpStatus.OK);
     }
 
