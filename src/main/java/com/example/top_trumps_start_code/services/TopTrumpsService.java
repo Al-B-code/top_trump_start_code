@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class TopTrumpsService {
     private ArrayList<Card> cardDeck;
 
-    public Reply checkWinner(Card card1, Card card2){
+    public static Reply checkWinner(Card card1, Card card2){
         Rank card1Rank = card1.getRank();
         Rank card2Rank = card2.getRank();
         String winner = "placeHolder";

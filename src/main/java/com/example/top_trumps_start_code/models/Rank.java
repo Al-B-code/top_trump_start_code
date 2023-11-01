@@ -16,6 +16,7 @@ public enum Rank {
     KING(13),
     ACE(14);
 
+
     private int value;
 
     Rank(int value){
