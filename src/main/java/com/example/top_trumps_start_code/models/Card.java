@@ -12,6 +12,21 @@ public class Card {
 
     public Card(){};
 
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;  // Objects are the same instance
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;  // Objects are of different classes or null
+        }
+
+        Card otherCard = (Card) obj;
+        return this.suit == otherCard.suit && this.rank == otherCard.rank;
+    }
+
+
     public Rank getRank() {
         return rank;
     }

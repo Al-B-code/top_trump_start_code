@@ -21,7 +21,6 @@ public class DeckOfCards {
         this.deck = deck;
     }
 
-
     private ArrayList<Card> createDeck() {
         ArrayList<Card> deck = new ArrayList<>();
 
@@ -29,9 +28,29 @@ public class DeckOfCards {
             for (Rank rank : Rank.values()){
                 Card card = new Card(rank, suit);
                 deck.add(card);
+                System.out.println(card.getRank().toString() + card.getSuit().toString());
             }
         }
         return deck;
+    }
+
+    public boolean containsCard(Card cardToFind) {
+        for (Card card : deck) {
+            if (card.equals(cardToFind)) {
+                System.out.println(card.getRank().toString() + card.getSuit().toString());
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void removeCard(Card cardToRemove) {
+        for (Card card : deck) {
+            if (card.equals(cardToRemove)) {
+                deck.remove(card);
+                return;
+            }
+        }
     }
 }
 
